@@ -1,0 +1,26 @@
+.city__main{
+    background-image: url(../../img/piter.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.city__container{
+    max-width: 1640px;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+
+.city__name{
+    margin-top: 730px;
+    width: auto;
+}
+.city__name > h1{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 90px;
+    line-height: 119.51%;
+    color: #F8F8F8;
+
+}

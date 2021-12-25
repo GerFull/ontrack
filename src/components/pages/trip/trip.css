@@ -1,0 +1,153 @@
+.trip {
+    min-height: 830px;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 69px;
+}
+
+.trip__right {
+    padding-top: 40px;
+    padding-left: 45px;
+    width: 1580px;
+}
+
+.trip__right-tittle {
+    margin-top: 20px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 56px;
+    color: #151515;
+    margin-bottom: 32px;
+}
+
+.trip__place {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.trip__img {
+    height: 32px;
+    width: 32px;
+    margin-right: 12px;
+}
+
+.trip__place > p:first-of-type {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+    color: #151515;
+    margin-right: 24px;
+}
+
+.trip__citypage {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: #2234db;
+    cursor: pointer;
+}
+.trip__data {
+    display: flex;
+    align-items: center;
+}
+
+.trip__data > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+    color: #151515;
+}
+
+.trip__right-info {
+    min-width: 700px;
+}
+
+.trip__right-top {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.trip__func {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.trip__functions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.trip__team {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: flex-end;
+}
+
+.trip__team-item {
+    background-color: aqua;
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 100%;
+}
+
+.trip__func-img {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom:16px ;
+}
+
+.trip__func-img > img {
+    margin-right: 10px;
+}
+
+.trip__func-img > img:last-child {
+    margin-right: 0;
+}
+
+.trip__survey {
+    display: flex;
+    justify-content: center;
+}
+
+.trip__survey > img{
+    margin-right: 12px;
+}
+
+.trip__survey > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+    color: #2234db;
+}
+
+.trip__days{
+    display: flex;
+    width: 1580px;
+    flex-wrap: wrap;
+}
+
+.trip__team-pls{
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

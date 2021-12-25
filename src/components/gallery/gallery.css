@@ -1,0 +1,41 @@
+.selected{
+    width: 806px;
+    height: 597px;
+    border-radius: 8px;
+}
+
+.gallery{
+    position: relative;
+}
+.nextarrow{
+    position: absolute;
+    top: 270px;
+    right: -10px;
+    width: 44px;
+    height: 76px;
+    cursor: pointer;
+}
+
+.prevarrow{
+    position: absolute;
+    top: 270px;
+    left:0;
+    width: 44px;
+    height: 76px;
+    cursor: pointer;
+}
+.imgcontainer{
+    margin-top: 28px;
+    height: 94px;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.imgcontainer > img{
+    border-radius: 8px;
+    width: 111px;
+    height: 74px;
+    margin-right: 28px;
+    cursor: pointer;
+}

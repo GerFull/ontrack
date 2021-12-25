@@ -1,0 +1,28 @@
+.favorites__container{
+    padding-top:70px;
+    max-width: 1640px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+}
+
+.favorites__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.favorites__title > p{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 56px;
+    color: #000000;
+}
+
+.favorites__card{
+    display: flex;
+    overflow: auto;
+    min-height: 500px;
+}

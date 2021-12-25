@@ -1,0 +1,42 @@
+.container__join{
+    margin: 0 auto;
+    max-width: 1160px;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+.join{
+    margin: 0 auto;
+    height: 250px;
+    width: 890px;
+}
+
+.join__tittle{
+    margin-bottom: 40px;
+    text-align: center;  
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 53px;
+    text-align: center;
+    color: #161616;
+}
+
+.join__discription{
+    margin-bottom: 40px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+}
+
+.join__code{
+    margin: 0 auto;
+    width: 521px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}

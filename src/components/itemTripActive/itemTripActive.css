@@ -1,0 +1,39 @@
+.trip__item-aciv{
+    min-width: 68px;
+    min-height: 68px;
+    border-radius: 4px;
+    background: #2234DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    z-index: 12;
+}
+
+.trip__item-aciv >p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+.trip__item-now{
+    display: flex;
+    width: 155px;
+}
+
+.trip__title{
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    left: -140px;
+    margin-left: 20px;
+    transform: translateX(0);
+    transition: 0.3s;
+}
+
+.trip__title.active{
+    transform: translateX(230px);
+}

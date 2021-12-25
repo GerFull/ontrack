@@ -1,0 +1,24 @@
+.search-item{
+    position: relative;
+    padding-left: 44px;
+}
+
+.search-img{
+    position: absolute;
+    left: 14px;
+    top:0;
+    width: 24px;
+    height: 24px;
+}
+
+.search__item-text{
+    color: black;
+    height: 25px;
+    align-items: center;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #151515;
+}

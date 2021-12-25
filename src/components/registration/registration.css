@@ -1,0 +1,132 @@
+.authorization{
+    width: 473px;
+    height: 621px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.authorization__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.authorization__title > img{
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.authorization__tabs{
+    display: flex;
+}
+
+.tab:first-child{
+    margin-right: 40px;
+}
+
+.tab{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #B8B4B4;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+.active__tab{
+    border-bottom: 2px solid blue;
+    color: #151515;
+}
+
+.authorization__content{
+    display: none;
+}
+
+.authorization__content-active{
+    display: block;
+}
+
+.registration{
+    padding: 36px;
+}
+
+
+.registration > p{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #151515;
+    margin-bottom: 40px;
+}
+
+.authorization__text{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #9A9A9A;
+}
+
+.registration__text{
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.registration__text > p{
+    margin-left: 12px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid blue;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #2234DB;
+    cursor: pointer;
+}
+
+.help__sign{
+    display: flex;
+    justify-content: center;
+}
+
+.img-sign{
+    margin-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+}
+
+.img-sign > img{
+    cursor: pointer;
+}
+
+.signin{
+    padding: 36px;
+}
+
+.signin > p{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #151515;
+    margin-bottom: 40px;
+}
+
+.btn__sign{
+    margin-top: 81px;
+}
+
+.signin > .input__password{
+    margin-bottom: 8px;
+}

@@ -1,0 +1,40 @@
+
+.profile__item{
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 12px;
+    margin-right: 32px;
+    margin-bottom: 32px;
+    width: 546px;
+    height: 198px;
+    border-radius: 8px;
+    background-image: url(../../img/itemPr.png);
+}
+
+.trippr__tittle{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFFFFF;
+    margin-bottom: 60px;
+}
+
+.trippr__discr{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.trippr__text{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.trippr__text > img{
+    margin-right: 10px;
+}

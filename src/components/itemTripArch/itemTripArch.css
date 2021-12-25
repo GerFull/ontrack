@@ -1,0 +1,23 @@
+
+
+.trip__item-arch{
+    width: 68px;
+    height: 68px;
+    border-radius: 4px;
+    border: 2px solid #2234DB;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    z-index: 120;
+}
+
+.trip__item-arch > p{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: 0.04em;
+    color: #2234DB;
+}

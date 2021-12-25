@@ -1,0 +1,124 @@
+.container__city{
+    margin: 0 auto;
+    max-width:1640px;
+    padding-top: 40px;
+    padding-bottom: 90px;
+}
+
+
+.search{
+    width: 565px;
+}
+.cities{
+    height: 1800px;
+    width: 100%;
+}
+.city__search{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.city__searchtext{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 56px;
+    color: #000000;
+}
+
+.city__cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.city__item{
+    position: relative;
+    box-sizing: border-box;
+    width: 805px;
+    height: 533px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(./city-card1.png);
+    background-repeat: no-repeat;
+    transition: background-size .3s ease;
+    cursor: pointer;
+}
+.city__item:hover{
+    background-size: 110%;
+    transform-origin: center;
+}
+.city__item:nth-child(2){
+    width: 805px;
+    height: 533px;
+    margin-right: 0px;
+    background-image: url(./city-card2.png);
+}
+.city__item:nth-child(3){
+    width: 527px;
+    background-image: url(./city-card3.jpg);
+    height: 587px;
+}
+.city__item:nth-child(4){
+    width: 525px;
+    height: 587px;
+    background-image: url(./city-card4.jpg);
+}
+.city__item:nth-child(5){
+    width: 527px;
+    height: 587px;
+    margin-right: 0px;
+    background-image: url(./city-card5.png);
+    
+}
+.city__item:nth-child(6){
+    width: 1640px;
+    margin-right:  0px;
+    background-image: url(./city-card6.png);
+}
+
+.item__text{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    background: rgba(49, 49, 49, 0.31);
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+    max-height: 50px;
+    max-width: 340px;
+    padding: 0px 20px 7px;
+    align-items: baseline;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 43px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.search__pole{
+    width: 565px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid rgba(116, 116, 119, 0.83);
+    position: absolute;
+    z-index: 100;
+    overflow: hidden;
+    border-bottom-right-radius: 19px;
+    border-bottom-left-radius: 19px;
+    overflow-y: auto;
+    border-top: none;
+    box-sizing: border-box;
+}
+
+.search__line{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(116, 116, 119, 0.22);
+}

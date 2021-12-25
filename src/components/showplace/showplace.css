@@ -1,0 +1,19 @@
+.showplace{
+    margin-top: 44px;
+}
+
+.showplace > h1{
+    margin-bottom: 44px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 56px;
+    color: #000000;
+}
+
+.showplace__cards{
+    display: flex;
+    overflow: auto;
+    text-decoration: none;
+}

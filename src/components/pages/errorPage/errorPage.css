@@ -1,0 +1,42 @@
+.error__container{
+    margin: 0 auto;
+    max-width: 770px;
+    padding-top: 80px;
+}
+
+.error__text{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.error__text > p{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 390px;
+    line-height: 115.01%;
+    color: #151515;
+}
+
+.error__text > img{
+    margin: 0 30px;
+}
+
+.error__title{
+    text-align: center;
+    margin-bottom: 190px;
+}
+.error__title > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 134%;
+    color: #151515;
+}
+
+.erorr__btn{
+    width: 395px;
+    height: 60px;
+    margin: 0 auto;
+}

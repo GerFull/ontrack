@@ -1,0 +1,28 @@
+.showplacepls{   
+    width: 390px;
+    height:450px;
+    border-radius: 8px;
+    background-color: white;
+    border: 4px solid #2234DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.showplacepls__text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.showplacepls__text > p{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    color: #2234DB;
+    margin-bottom: 16px;
+}

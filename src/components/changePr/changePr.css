@@ -1,0 +1,59 @@
+.changepr__size{
+    width: 473px;
+}
+
+.changepr__tittle{
+    padding-top: 16px;
+    padding-left: 36px;
+    padding-bottom: 16px;
+    padding-right: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+.changepr__tittle > img{
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}
+.changepr__tittle > p{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #151515;
+}
+
+.changepr__main{
+    padding: 20px 36px 36px;
+}
+
+.changepr__profile{
+    display: flex;
+}
+
+.changepr__name{
+    width: 255px;
+}
+.changepr__name > input{
+    width: 100%;
+}
+.pr__photo{
+    margin-left:32px;
+    height: 116px;
+    width: 116px;
+    border-radius: 100%;
+    background-color: blueviolet;
+}
+
+.changepr__password > p{
+    margin-bottom: 8px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 21px;
+    color: #151515;
+}

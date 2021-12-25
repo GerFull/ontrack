@@ -1,0 +1,56 @@
+.header__body{
+    background-image: url(./Rectangle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1640px;
+    padding-top: 14px;
+}
+
+.header__description{
+    margin-top: 135px;
+    width: 1040px;
+}
+
+.header__tittle{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 90px;
+    line-height: 119.51%;
+    color: #F8F8F8;
+
+}
+
+.header__text{
+    margin-top: 63px;
+    margin-bottom: 80px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFFFFF;
+    width: 470px;
+}
+.code__text{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 23px;
+    color: rgba(252, 252, 252, 0.84);
+    text-decoration: underline;
+}
+.header__code{
+    margin-top:130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 510px;
+}
+

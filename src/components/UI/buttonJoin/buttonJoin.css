@@ -1,0 +1,21 @@
+.button__join{
+    width: 218px;
+    height: 42px;
+    border-radius: 5px;
+    border: none;   
+    outline: none;
+    background: rgba(255, 255, 255, 0.43);
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    color: #2C2C2C;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.button__join:active{
+    transform: scale(0.94);
+}

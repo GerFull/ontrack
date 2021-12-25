@@ -1,0 +1,50 @@
+.myinput{
+    background: transparent;
+    border: none;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+    color: rgba(252, 252, 252, 0.84);
+    margin-right: 30px;
+    border-bottom: 1px solid white;
+}
+
+.myinput:focus {    
+    outline: none;
+}
+
+.myinput::-webkit-input-placeholder { 
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+    color: rgba(252, 252, 252, 0.84);
+}
+
+.joininput{
+    background: transparent;
+    border: none;
+    font-family: Segoe UI;
+    min-width: 190px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: rgba(34, 52, 219, 0.66);
+    border-bottom: 1px solid rgba(34, 52, 219, 0.66);;
+}
+
+.joininput:focus {    
+    outline: none;
+}
+
+.joininput::-webkit-input-placeholder { 
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: rgba(34, 52, 219, 0.66);
+}

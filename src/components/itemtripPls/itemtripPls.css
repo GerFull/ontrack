@@ -1,0 +1,26 @@
+.trip__item-aciv{
+    min-width: 68px;
+    min-height: 68px;
+    border-radius: 4px;
+    background: #2234DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    z-index: 12;
+}
+
+.pls{
+    cursor: pointer;
+}
+
+.trip__pls-text{
+    margin-top: 16px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: 0.04em;
+    color: #2234DB;
+}

@@ -1,0 +1,58 @@
+.item-trip-modal__size {
+    position: relative;
+    width: 790px;
+    height: 506px;
+    box-sizing: border-box;
+    padding: 36px;
+    padding-top: 24px;
+}
+
+.item-trip-modal__content {
+    background-color: aqua;
+}
+
+.item-trip-modal__data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.item-trip-modal__day-year {
+    margin-left: 12px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: #151515;
+}
+.absolute-cross {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.item-trip-modal__inpits {
+    display: flex;
+}
+
+.item-trip-modal__discr{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.text-area {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    width: 712px;
+    height: 132px;
+    resize: none;
+    font-family: Roboto;
+    font-style: normal;
+    color:black;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}

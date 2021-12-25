@@ -1,0 +1,44 @@
+.header{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+.header.active{
+    background-color:white;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.header__item-title{
+    color: white;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-decoration: none;
+}
+
+.header.active .header__item-title{
+    color: black;
+}
+
+.container__header{
+    margin: 0 auto;
+    max-width: 1640px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.header__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 400px;
+    text-align: center
+}

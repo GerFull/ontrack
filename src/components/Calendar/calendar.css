@@ -1,0 +1,37 @@
+.calendar {
+    margin-top: 10px;
+    margin-bottom:28px ;
+}
+
+.calendar > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #151515;
+    margin-bottom: 5px;
+}
+
+.btn_calnedar {
+    background-color: black;
+    color: white;
+}
+
+.calendar__input {
+    width: 395px;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 21px;
+    color: #151515;
+    padding-left: 5px;
+}
+
+.calendar__input:focus {
+    outline: 1px solid #2234db;
+}

@@ -1,0 +1,42 @@
+.days {
+    width: 368px;
+    height: 301px;
+    box-sizing: border-box;
+    margin-right: 36px;
+    margin-bottom: 40px;
+}
+
+.days:nth-child(4n+4){
+    margin-right: 0;
+}
+
+.days__tittle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #151515;
+}
+
+.days__tittle > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 43px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.days__tittle > p:first-of-type {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 43px;
+    color: #151515;
+}
+
+.days__inputs{
+    padding-left: 6px;
+    overflow: auto;
+    height: 245px;
+}
