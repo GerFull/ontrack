@@ -165,7 +165,10 @@ export default function Trip(props) {
             </div>
             <Footer />
             <Modalpr active={partyTripbtn} setActive={setPartyTripbtn}>
-                <PartyTrip />
+                <PartyTrip users={trip.Users}
+                code={trip.InviteCode}
+                idT={trip.Id}
+                />
             </Modalpr>
             <Modalpr active={archivebtn} setActive={setArchive}>
                 Архивировать?

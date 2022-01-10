@@ -156,7 +156,11 @@ export default class OnTrackService {
             },
         })
     }
-
+    /**
+     * 
+     * @param {*} user 
+     * @returns 
+     */
     GetInfoFavoritePlaceUser = async (user) => {
         return axios({
             method: 'get',
@@ -166,8 +170,16 @@ export default class OnTrackService {
             }
         })
     }
-
-    CreateTrip = async (user, datastart,dataend ,city, nametrip) => {
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} datastart 
+     * @param {*} dataend 
+     * @param {*} city 
+     * @param {*} nametrip 
+     * @returns 
+     */
+    CreateTrip = async (user, datastart, dataend, city, nametrip) => {
         const bodyFormData = {
             'tripDestanation': city,
             "name": nametrip,
@@ -183,8 +195,13 @@ export default class OnTrackService {
             data: bodyFormData
         })
     }
-
-    GetTripInfo = async (user,id) => {
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} id 
+     * @returns 
+     */
+    GetTripInfo = async (user, id) => {
         return axios({
             method: 'get',
             url: `http://188.186.7.171/travelhelperbackend/api/Trips/${id}`,
@@ -193,14 +210,104 @@ export default class OnTrackService {
             }
         })
     }
-
-    DeleteTrip = async (user,id) => {
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} id 
+     * @returns 
+     */
+    DeleteTrip = async (user, id) => {
         return axios({
             method: 'delete',
             url: `http://188.186.7.171/travelhelperbackend/api/Trips/${id}`,
             headers: {
                 'Authorization': `Bearer ${user}`
             }
+        })
+    }
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} id 
+     * @param {*} nameQuiz 
+     * @param {*} Answer 
+     * @returns 
+     */
+    CreateQuiz = async (user, id, nameQuiz, Answer) => {
+        const bodyFormData = {
+            "actionId": id,
+            "name": nameQuiz,
+            "pollVariants": Answer
+        }
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/CreatePoll`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
+        })
+    }
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} id 
+     * @returns 
+     */
+    DeleteQuiz = async (user, id) => {
+        return axios({
+            method: 'delete',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/DeletePoll/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            }
+        })
+    }
+    /**
+     * 
+     * @param {string} user 
+     * @param {number} pollid 
+     * @param {number} variant 
+     * @returns 
+     */
+    ChoiseQuiz = async (user, pollid, variant) => {
+        const bodyFormData = {
+            "pollId": pollid,
+            "variantIndex": variant
+        }
+        console.log(bodyFormData)
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/Vote`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
+        })
+    }
+
+    /**
+     * 
+     * @param {*} user 
+     * @param {*} tripId 
+     * @param {*} userID 
+     * @param {*} newRole 
+     * @returns []
+     */
+    ChengeRole = async (user, tripId, userID, newRole) => {
+        const bodyFormData = {
+            "tripId": tripId,
+            "userToChangeId": userID,
+            "newRoleId": newRole
+        }
+        console.log(bodyFormData)
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/ChangeRole`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
         })
     }
 }

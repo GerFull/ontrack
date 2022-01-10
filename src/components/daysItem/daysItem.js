@@ -4,6 +4,7 @@ import './daysItem.css'
 
 export default function DaysItem({board,dragOverHandler,dragLeaveHandler,dragStarthandler,dragEndHandler,dropHandler,dropCardHandler}) {
 
+    
     return (
         <div className='days'
         //onDragOver={e=>dragOverHandler(e)}
@@ -18,6 +19,11 @@ export default function DaysItem({board,dragOverHandler,dragLeaveHandler,dragSta
                 {
                     board.Actions?.map(item => (
                         <InputDrag key={item?.id}
+                        name={item.Name}
+                        timeAction={item.TimeOfAction}
+                        comm={item.Description}
+                        quiz={item.Poll}
+                        id={item.Id}
                             //onDragOver={e => dragOverHandler(e)}
                             //onDragLeave={e => dragLeaveHandler(e)}
                             //onDragStart={e => dragStarthandler(e, board, item)}

@@ -8,11 +8,22 @@ import ButtonBlue from '../UI/buttonBlue/buttonBlue'
 import DoneQiuz from '../DoneQiuz/DoneQiuz'
 
 
-export default function ItemTripModal({ active, timeValue, channgeValue, value1, setActive, setQuizModalActive, setTimeModal, showQuiz ,doneQuiz}) {
+export default function ItemTripModal({ active, 
+    timeValue, 
+    channgeValue, 
+    value1, 
+    setActive, 
+    setQuizModalActive, 
+    setTimeModal, 
+    showQuiz,
+    doneQuiz,
+    comment,
+    quiz
+}) {
 
     const [value2, setValue] = useState('')
     const [time, setTime] = useState('')
-    console.log('doneQuiz',doneQuiz)
+
 
 
 
@@ -41,7 +52,7 @@ export default function ItemTripModal({ active, timeValue, channgeValue, value1,
                 </div>
                 <div className='item-trip-modal__discr'>
                     <p>Коментарии</p>
-                    <textarea placeholder='Добавьте заметку о событии, чтобы ничего не упустить' className='text-area' />
+                    <textarea value={comment} placeholder='Добавьте заметку о событии, чтобы ничего не упустить' className='text-area' />
                 </div>
                 {
                     !showQuiz && <div className='item-trip-modal__quiz' onClick={() => setQuizModalActive(true)}>

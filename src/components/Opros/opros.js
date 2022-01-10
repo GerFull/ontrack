@@ -1,5 +1,7 @@
+import Cookies from 'js-cookie'
 import React, { useState} from 'react'
 import crossBl from '../../img/crossBlack.png'
+import OnTrackService from '../../service/service'
 import ButtonBlue from '../UI/buttonBlue/buttonBlue'
 import InputChange from '../UI/inputChange/inputChange'
 import InputQuiz from '../UI/inputQuiz/InputQuiz'
@@ -7,8 +9,11 @@ import './opros.css'
 
 let counterId = 2;
 
-export default function Opros({setActive,setShowQuiz,setDoneQuiz}) {
+export default function Opros({setActive,setShowQuiz,setDoneQuiz,id}) {
 
+
+    const ontrack = new OnTrackService()
+    const userToken = Cookies.get('auth-token')
     const [answer, setAnswer] = useState([
         { id: 0, value: '' },
         { id: 1, value: '' }
@@ -24,14 +29,17 @@ export default function Opros({setActive,setShowQuiz,setDoneQuiz}) {
         setAnswer(answer.filter(p => p.id !== id))
     }
 
-    const submitAnswer = () => {
-        console.log(nameQuiz)
-        console.log(answer)
-        setActive(false)
-        setShowQuiz(true)
-        setDoneQuiz([nameQuiz,answer])
-        const kirrilAnswer= answer.map(d => d.value)
-        console.log(kirrilAnswer)
+    const submitAnswer = async () => {
+        try {
+            const stringAnswer= answer.map(d => d.value)
+            await ontrack.CreateQuiz(userToken,id,nameQuiz,stringAnswer).then(res=>setDoneQuiz(res.data.Poll))
+            setActive(false)
+            setShowQuiz(true)
+            
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
 

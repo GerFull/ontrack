@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import ItemTripModal from '../../ItemTripModal/ItemTripModal'
 import Modalpr from '../../modalpr/modalpr'
 import Opros from '../../Opros/opros'
@@ -10,21 +10,41 @@ export default function InputDrag({ ...props }) {
     const [field, setfield] = useState(false)
     const [dayModalActtive, setDaylActive] = useState(false)
     const [quizModalActive, setQuizModalActive] = useState(false)
-    const [time, setTime] = useState(null)
+    const [time, setTime] = useState(String)
     const [showQuiz, setShowQuiz] = useState(false)
     const [doneQuiz,setDoneQuiz]=useState([])
+    const [comment,setComment]=useState(String)
 
+
+    const CheclQuiz =() =>{
+        if(props.quiz === null){
+            
+        } else{
+            setShowQuiz(true)
+            setDoneQuiz(props.quiz)
+        }
+    }
+
+    useEffect(() => {
+        setValue(props.name)
+        setTime(props.timeAction)
+        setComment(props.comm)
+
+        CheclQuiz()
+    }, [])
 
     return (
-        <div onDoubleClick={() => setDaylActive(true)}>
-            {!field &&
-                <input {...props}
-                    onBlur={() => setfield(true)} onChange={event => setValue(event.target.value)} value={value} className='draginput' type='text' />
-            }
+        <div onDoubleClick={(e) => {
+            e.target.blur()
+            setDaylActive(true)}}>
             {field &&
+                <input {...props}
+                    onBlur={() => setfield(false)} onChange={event => setValue(event.target.value)} value={value} className='draginput' type='text' />
+            }
+            {!field &&
                 <div
                     className='dragdiv'
-                    onClick={() => setfield(false)}
+                    onClick={() => setfield(true)}
                     {...props}
                 >
                     {time ? <p>{time}</p> : null}
@@ -33,6 +53,8 @@ export default function InputDrag({ ...props }) {
             }
             <Modalpr active={dayModalActtive} setActive={setDaylActive} >
                 <ItemTripModal
+                    quiz={props.quiz}
+                    comment={comment}
                     showQuiz={showQuiz}
                     setActive={setDaylActive}
                     active={dayModalActtive}
@@ -46,6 +68,7 @@ export default function InputDrag({ ...props }) {
             </Modalpr>
             <Modalpr active={quizModalActive} setActive={setQuizModalActive}>
                 <Opros
+                id={props.id}
                 setDoneQuiz={setDoneQuiz}
                 setActive={setQuizModalActive} 
                 setShowQuiz={setShowQuiz}
