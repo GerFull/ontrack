@@ -4,25 +4,21 @@ import './calendar.css'
 import 'bootstrap-daterangepicker/daterangepicker.css'
 import moment from 'moment';
 
-export default function Calendar({ setDateEnd,setDateStart }) {
+export default function Calendar({ setDateEnd, setDateStart }) {
 
     const [start, setStart] = useState(moment())
     const [end, setend] = useState(moment())
 
     const handleEvent = (start, end) => {
-        //setDate(event.target.value)
-        //console.log(start)
         setStart(start)
         setend(end)
-        setDateStart(start.format('YYYY-MM-DD'))
-        setDateEnd()
     }
 
 
-    const Show = ()=>{
+    const Show = () => {
         setDateStart(start.format('YYYY-MM-DD'))
         setDateEnd(end.format('YYYY-MM-DD'))
-        
+
     }
 
 

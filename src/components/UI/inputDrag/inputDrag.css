@@ -1,5 +1,5 @@
-.draginput{
-    border:none;    
+.draginput {
+    border: none;
     border-bottom: 2px solid #dfdfdf;
     width: 340px;
     font-family: Segoe UI;
@@ -11,12 +11,12 @@
     margin-top: 18px;
 }
 
-.draginput:focus{
-    outline:none;
-    box-shadow: 0px 0px 8px rgba(34, 52, 219, 0.97);    
+.draginput:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(34, 52, 219, 0.97);
 }
 
-.dragdiv{
+.dragdiv {
     border-bottom: 2px solid #dfdfdf;
     width: 340px;
     font-family: Segoe UI;
@@ -28,4 +28,18 @@
     margin-top: 18px;
     height: 29px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+
+.dragdiv > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    color: #7b7b7b;
+    margin-right: 20px;
+}
+
+

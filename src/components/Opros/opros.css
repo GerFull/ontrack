@@ -1,0 +1,69 @@
+.opros__size {
+    min-height: 473px;
+    width: 470px;
+    box-sizing: border-box;
+}
+
+.opros__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c8c8c8;
+    padding: 16px 36px;
+}
+
+.opros__header > img {
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.opros__header > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #151515;
+}
+
+.opros__content {
+    padding: 20px 36px;
+}
+
+.opros__content > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #151515;
+    margin-bottom: 6px;
+}
+
+.opros__btn {
+    padding-left: 12px;
+    padding-top: 8px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    height: 35px;
+}
+
+.opros__btn > p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 19px;
+    color: #b8b4b4;
+}
+
+.opros__checkbox {
+    margin-top: 24px;
+    margin-bottom: 36px;
+}

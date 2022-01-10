@@ -43,7 +43,7 @@ function Header() {
                         <img src={logo} alt='onTrack' />
                     </div></Link>
                     <div className='header__item'>
-                        <Link className='header__item-title' to='/trip'>Мои поездки</Link>
+                        <Link className='header__item-title' to={{pathname:'/trip' , state: {id:'0'}}}>Мои поездки</Link>
                         <Link className='header__item-title' to='/FavoritesPlace/'>Избранное</Link>
                         {showBtn()}
                     </div>

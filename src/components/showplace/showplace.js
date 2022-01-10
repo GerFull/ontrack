@@ -10,7 +10,7 @@ import './showplace.css'
 
 const render = (itemplace, showAll, favourites) => {
     return itemplace.slice(0, showAll ? itemplace.length : 3).map((item) =>
-        <ShowplaceItem title={item.name} key={item.id} idCard={item.id} urlimg={item.mainPhotoUrl} place={item.textLocation} isF={favourites.some((e) => e.id === item.id)} />
+        <ShowplaceItem array1={item} title={item.name} key={item.id} idCard={item.id} urlimg={item.mainPhotoUrl} place={item.textLocation} isF={favourites.some((e) => e.id === item.id)} />
     )
 }
 

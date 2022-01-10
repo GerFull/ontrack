@@ -1,0 +1,30 @@
+.input-quiz > input{
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    height: 35px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 21px;
+    color: #151515;
+}
+
+
+.input-quiz > input:focus{
+    outline: 1px solid #2234DB;
+}
+
+.input-quiz{
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.input-quiz > img {
+    position: absolute;
+    top: 11px;;
+    right: 10px;
+    cursor: pointer;
+}

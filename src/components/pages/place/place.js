@@ -7,28 +7,21 @@ import heart from '../../../img/BlueHeart.png'
 import emptyheart from '../../../img/EmptyBlueHeart.png'
 import OnTrackService from '../../../service/service'
 import Cookies from 'js-cookie'
-import Loader from '../../Loader/Loader'
-import ErrorPage from '../errorPage/errorPage'
 
 export default function Place(props) {
 
     const ontrack = new OnTrackService();
 
     const userToken = Cookies.get('auth-token')
-    const { idCard, favorite } = props.location.state
-    const [array, setArray] = useState([])
+    const { idCard, favorite, array1 } = props.location.state
     const [favoritePlace, setFavorite] = useState(false)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(false)
-    // const [PhotosUrl, SetPhotosUrl] = useState([])
-
 
     useEffect(() => {
         setFavorite(favorite);
     }, [favorite])
 
     const changeheart = (e) => {
-        if (favorite) {
+        if (favoritePlace) {
             e.target.src = `${emptyheart}`
             setFavorite(false)
             ontrack.PostFavoritePalce(idCard, userToken).catch(e => console.log('ошибка отправики в Месте в избранное', e))
@@ -40,79 +33,48 @@ export default function Place(props) {
     }
 
 
-    const getInfo = async () => {
-        try {
-            await ontrack.GetInfoIdPlace(idCard).then(res => {
-                console.log('Страница места', res.data)
-                setArray(res.data)
-                //setLoad
-            })
-
-        } catch (e) {
-            console.log('Ошибка в получения информации определенного места:' + e.message)
-            //setError(true)
-        }
-    }
-
-
-    const loadingInfo = async () => {
-        await getInfo()
-        setLoading(false)
-    }
-
-    useEffect(() => {
-        loadingInfo()
-    }, []);
-
-
     return (
         <div>
-            {
-                error ? (<ErrorPage />) : (
-                    loading ? (<Loader />) : (<>
-                        <div className='active'>
-                            <Header />
+            <div className='active'>
+                <Header />
+            </div>
+            <div className='container__place'>
+                <div className='place'>
+                    <div className='place__way'>
+                        <p>{array1.cityName} &gt; {array1.name}</p>
+                    </div>
+                    <div className='place__tittle'>
+                        <p>{array1.name}</p>
+                        <img src={favoritePlace ? heart : emptyheart} alt='haertBLue' onClick={changeheart} />
+                    </div>
+                    <div className='place__item'>
+                        <div className='place__gallery'>
+                            <Gallery Photos={array1.photosUrl} />
                         </div>
-                        <div className='container__place'>
-                            <div className='place'>
-                                <div className='place__way'>
-                                    <p>{array.cityName} &gt; {array.name}</p>
+                        <div className='place__discr'>
+                            <div className='place__address'>
+                                <p className='place__standart'>Адрес</p>
+                                {array1.cityName}, {array1.textLocation}
+                            </div>
+                            <div className='place__job'>
+                                <p className='place__standart'>Режим работы</p>
+                                <div className='place__worktiime'>
+                                    <p>{array1.workingHours}</p>
+                                    <p>Вход {array1.enterCost}</p>
                                 </div>
-                                <div className='place__tittle'>
-                                    <p>{array.name}</p>
-                                    <img src={favoritePlace ? heart : emptyheart} alt='haertBLue' onClick={changeheart} />
-                                </div>
-                                <div className='place__item'>
-                                    <div className='place__gallery'>
-                                        <Gallery />
-                                    </div>
-                                    <div className='place__discr'>
-                                        <div className='place__address'>
-                                            <p className='place__standart'>Адрес</p>
-                                            {array.cityName}, {array.textLocation}
-                                        </div>
-                                        <div className='place__job'>
-                                            <p className='place__standart'>Режим работы</p>
-                                            <div className='place__worktiime'>
-                                                <p>{array.workingHours}</p>
-                                                <p>Вход {array.enterCost}</p>
-                                            </div>
-                                            {
-                                                array.placeSite ? <a href={array.placeSite}>Сайт</a>
-                                                    : null
-                                            }
-                                        </div>
-                                        <div className='place__text'>
-                                            <p>{array.description}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                {
+                                    array1.placeSite ? <a href={array1.placeSite}>Сайт</a>
+                                        : null
+                                }
+                            </div>
+                            <div className='place__text'>
+                                <p>{array1.description}</p>
                             </div>
                         </div>
-                        <Footer />
-                    </>)
-                )
-            }
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }

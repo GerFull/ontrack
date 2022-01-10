@@ -1,0 +1,37 @@
+.trip-member {
+    padding-left: 36px;
+    padding-top: 16px;
+    padding-right: 40px;
+    margin-bottom: 16px;
+}
+
+.party-trip__creater {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.party-trip__creater > div {
+    display: flex;
+    align-items: center;
+}
+
+.party-trip__text {
+    margin-left: 16px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #151515;
+}
+
+
+.trip-member__roles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.trip-member__roles> div {
+    display: flex;
+    align-items: center;
+}

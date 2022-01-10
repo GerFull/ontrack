@@ -15,22 +15,24 @@ import Cookies from 'js-cookie';
 export default function Profile() {
 
     const ontrack = new OnTrackService();
-    
-    const userToken= Cookies.get('auth-token')
-    const [userInfo,setuserInfo]= useState([])
+
+    const userToken = Cookies.get('auth-token')
+    const [userInfo, setuserInfo] = useState([])
     const [toggleState, setToggleState] = useState(1);
     const [modalActtive, setModalActive] = useState(false);
-    const [createTrip, setCreateTrip]= useState(true);
+    const [createTrip, setCreateTrip] = useState(false);
 
     const toggleTab = (index) => {
         setToggleState(index)
     }
 
-    const getUSet=()=>{
+    const getUSet = () => {
         ontrack.GetInfoUser(userToken)
-        .then(res=> {console.log(res.data) 
-            setuserInfo(res.data)})
-        .catch(e=>console.log(e))
+            .then(res => {
+                console.log(res.data)
+                setuserInfo(res.data)
+            })
+            .catch(e => console.log(e))
     }
 
 
@@ -38,7 +40,7 @@ export default function Profile() {
 
     useEffect(() => {
         getUSet()
-    }, [])
+    },[])
 
     return (
         <div>
@@ -51,7 +53,7 @@ export default function Profile() {
                         <div className='body__left'>
                             <div className='profile__avatar'>
                                 <div className='avatar'></div>
-                                <ButtonPls/>
+                                <ButtonPls />
                             </div>
                             <div className='profile__descr'>
                                 <p className='profile__name'>{userInfo.Username}</p>
@@ -71,8 +73,8 @@ export default function Profile() {
                                 </div>
                                 <div className='contents__tabs'>
                                     <div className={toggleState === 1 ? "content active__content" : "content"}>
-                                        {userInfo.UserTrips?.map(item=>(
-                                            <ItemProfile key={item.id} title={item.Name}  city={item.DestinationName} datastart={item.TripStart} dataend={item.TripEnd}/>
+                                        {userInfo.UserTrips?.map(item => (
+                                            <ItemProfile key={item.Id} id={item.Id} title={item.Name} city={item.DestinationName} datastart={item.TripStart} dataend={item.TripEnd} />
                                         ))}
                                         <CreateItemPr onClick={() => setCreateTrip(true)} />
                                     </div>
@@ -89,7 +91,7 @@ export default function Profile() {
                 <Footer />
             </div>
             <Modalpr active={modalActtive} setActive={setModalActive}>
-                <ChangePr setActive={setModalActive}/>
+                <ChangePr setActive={setModalActive} />
             </Modalpr>
             <Modalpr active={createTrip} setActive={setCreateTrip} >
                 <ModalCreateTrip setActive={setCreateTrip} />

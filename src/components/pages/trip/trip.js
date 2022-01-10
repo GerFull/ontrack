@@ -14,83 +14,95 @@ import Modalpr from '../../modalpr/modalpr'
 import cross from '../../../img/cross.png'
 import Cookies from 'js-cookie'
 import OnTrackService from '../../../service/service'
-import moment from 'moment'
 import { Link } from 'react-router-dom'
+import TripNameChange from '../../tripNameChange/tripNameChange'
+import ChangeData from '../../ChangeData/ChangeData'
+import PartyTrip from '../../PartyTrip/PartyTrip'
 
-export default function Trip() {
+export default function Trip(props) {
 
-
+    const idTrip = props.location.state?.id
     const ontrack = new OnTrackService();
     const userToken = Cookies.get('auth-token')
-    const [partyTrip, setPartyTrip] = useState(false)
+    const [partyTripbtn, setPartyTripbtn] = useState(false)
     const [archivebtn, setArchive] = useState(false)
     const [deletebtn, setDeletebtn] = useState(false)
-    const [currentBoard, setCurrentBoard] = useState([])
-    const [currentItem, setCurrentItem] = useState(null)
+    // const [currentBoard, setCurrentBoard] = useState([])
+    // const [currentItem, setCurrentItem] = useState(null)
     const [trip, setTrip] = useState([])
-    const [boards, setBoards] = useState([
-        { id: 1, data: '25.12', dayweek: 'Сб', items: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }] },
-        { id: 2, data: '26.12', dayweek: 'Вс', items: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }] },
-        { id: 3, data: '27.12', dayweek: 'Пн', items: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }] },
-        { id: 4, data: '28.12', dayweek: 'Вт', items: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }] }
-    ])
-    // const [boards, setBoards] = useState([])
+    const [boards, setBoards] = useState([])
+    const [field, setfield] = useState(false)
+    const cityurl = `/city/${trip.DestinationId}`
+    const [valueName, setValueName] = useState('')
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
+    const [arrayTrips, setArrayTrips] = useState([])
 
-    const dragOverHandler = (e) => {
-        e.preventDefault()
+    // const dragOverHandler = (e) => {
+    //     e.preventDefault()
+    // }
+
+    // const dragLeaveHandler = (e) => {
+    // }
+
+    // const dragStarthandler = (e, board, item) => {
+    //     setCurrentBoard(board)
+    //     setCurrentItem(item)
+    // }
+
+    // const dragEndHandler = (e) => {
+    // }
+
+    // const dropHandler = (e, board, item) => {
+    //     e.stopPropagation()
+    //     e.preventDefault()
+    //     const currentIndex = currentBoard.items?.indexOf(currentItem)
+    //     currentBoard.items?.splice(currentIndex, 1)
+    //     const dropIndex = board.items?.indexOf(item)
+    //     board.items?.splice(dropIndex + 1, 0, currentItem)
+    //     setBoards(boards.map(b => {
+    //         if (b.id === board.id) {
+    //             return board
+    //         }
+    //         if (b.id === currentBoard.id) {
+    //             return currentBoard
+    //         }
+    //         return b
+    //     }))
+    // }
+
+    // const dropCardHandler = (e, board) => {
+    //     board?.items?.push(currentItem)
+    //     const currentIndex = currentBoard.items?.indexOf(currentItem)
+    //     currentBoard.items?.splice(currentIndex, 1)
+    //     setBoards(boards.map(b => {
+    //         if (b.id === board.id) {
+    //             return board
+    //         }
+    //         if (b.id === currentBoard.id) {
+    //             return currentBoard
+    //         }
+    //         return b
+    //     }))
+    // }
+
+    const DelteTrip = (idtrip) => {
+        ontrack.DeleteTrip(userToken, idtrip)
     }
 
-    const dragLeaveHandler = (e) => {
-    }
+    useEffect(() => {
+        ontrack.GetTripInfo(userToken, idTrip === undefined ? 0 : idTrip).then(res => {
+            console.log(res.data)
+            setTrip(res.data)
+            setBoards(res.data.TripDays)
+            setValueName(res.data.Name)
+            setStartDate(res.data.TripStart)
+            setEndDate(res.data.TripEnd)
+        }).catch(e => console.log(e))
 
-    const dragStarthandler = (e, board, item) => {
-        setCurrentBoard(board)
-        setCurrentItem(item)
-    }
+        ontrack.GetInfoUser(userToken).then(result => setArrayTrips(result.data.UserTrips))
+    }, [])
 
-    const dragEndHandler = (e) => {
-    }
-
-    const dropHandler = (e, board, item) => {
-        e.stopPropagation()
-        e.preventDefault()
-        const currentIndex = currentBoard.items?.indexOf(currentItem)
-        currentBoard.items?.splice(currentIndex, 1)
-        const dropIndex = board.items?.indexOf(item)
-        board.items?.splice(dropIndex + 1, 0, currentItem)
-        setBoards(boards.map(b => {
-            if (b.id === board.id) {
-                return board
-            }
-            if (b.id === currentBoard.id) {
-                return currentBoard
-            }
-            return b
-        }))
-    }
-
-    const dropCardHandler = (e, board) => {
-        board?.items?.push(currentItem)
-        const currentIndex = currentBoard.items?.indexOf(currentItem)
-        currentBoard.items?.splice(currentIndex, 1)
-        setBoards(boards.map(b => {
-            if (b.id === board.id) {
-                return board
-            }
-            if (b.id === currentBoard.id) {
-                return currentBoard
-            }
-            return b
-        }))
-    }
-
-    // useEffect(() => {
-    //     ontrack.GetTripInfo(userToken, 3).then(res => {
-    //         console.log(res.data)
-    //         setTrip(res.data)
-    //         //setBoards(res.data.TripDays)
-    //     }).catch(e => console.log(e))
-    // }, [])
 
     return (
         <div>
@@ -98,24 +110,21 @@ export default function Trip() {
                 <Header />
             </div>
             <div className='trip'>
-                <MenuTrip />
+                <MenuTrip arrayTrips={arrayTrips} />
                 <div className='trip__right'>
                     <div className='trip__right-top'>
                         <div className='trip__right-info'>
-                            <TripWay label='Туса в Екб'/>
-                            {/* <p className='trip__right-tittle'>{trip.Name}</p> */}
-                            <p className='trip__right-tittle'>Туса в Екб</p>
+                            <TripWay label={trip.Name} />
+                            <TripNameChange setValueName={setValueName} name={valueName} field={field} setfield={setfield} />
                             <div className='trip__data-place'>
                                 <div className='trip__place'>
                                     <img className='trip__img' src={mapbl} alt=' ' />
-                                    {/* <p>{trip.DestinationName}</p> */}
-                                    <p>Екатеринбург</p>
-                                    <Link style={{textDecoration: 'none'}} to='/city/1'><p className='trip__citypage'>Перейти к городу &gt;&gt;</p></Link>
+                                    <p>{trip.DestinationName}</p>
+                                    <Link style={{ textDecoration: `none` }} to={cityurl} ><p className='trip__citypage'>Перейти к городу &gt;&gt;</p></Link>
                                 </div>
                                 <div className='trip__data'>
                                     <img className='trip__img' src={calendarbl} alt='bl' />
-                                    {/* <p>{trip.TripStart} - {trip.TripEnd}</p> */}
-                                    <p>2021.25.12 -2021.28.12</p>
+                                    <ChangeData startD={startDate} setStardD={setStartDate} endD={endDate} setEndD={setEndDate} field={field} />
                                 </div>
                             </div>
                         </div>
@@ -124,14 +133,14 @@ export default function Trip() {
                                 <div className='trip__team'>
                                     <div className='trip__team-item' />
                                     <div className='trip__team-item' />
-                                    <div onClick={() => setPartyTrip(true)} className='trip__team-pls'>
+                                    <div onClick={() => setPartyTripbtn(true)} className='trip__team-pls'>
                                         <img src={cross} alt='cross' />
                                     </div>
                                 </div>
                                 <div className='trip__func-img'>
-                                    <img src={pencil} alt='' />
+                                    <img style={{ cursor: 'pointer' }} src={pencil} alt='' onClick={() => setfield(!field)} />
                                     <img style={{ cursor: 'pointer' }} onClick={() => setArchive(true)} src={archive} alt='' />
-                                    <img style={{ cursor: 'pointer' }} onClick={() => setDeletebtn(true)} src={delet} alt='' />
+                                    <img style={{ cursor: 'pointer' }} onClick={() => DelteTrip()} src={delet} alt='' />
                                 </div>
                             </div>
                         </div>
@@ -140,16 +149,14 @@ export default function Trip() {
                         {
                             boards.map(board =>
                                 <DaysItem
-                                    dropCardHandler={dropCardHandler}
+                                    //dropCardHandler={dropCardHandler}
                                     key={board.id}
-                                    data={board.data}
-                                    dweek={board.dayweek}
                                     board={board}
-                                    dragOverHandler={dragOverHandler}
-                                    dragLeaveHandler={dragLeaveHandler}
-                                    dragStarthandler={dragStarthandler}
-                                    dragEndHandler={dragEndHandler}
-                                    dropHandler={dropHandler}
+                                //dragOverHandler={dragOverHandler}
+                                //dragLeaveHandler={dragLeaveHandler}
+                                //dragStarthandler={dragStarthandler}
+                                //dragEndHandler={dragEndHandler}
+                                //dropHandler={dropHandler}
                                 />
                             )
                         }
@@ -157,8 +164,8 @@ export default function Trip() {
                 </div>
             </div>
             <Footer />
-            <Modalpr active={partyTrip} setActive={setPartyTrip}>
-                Участники
+            <Modalpr active={partyTripbtn} setActive={setPartyTripbtn}>
+                <PartyTrip />
             </Modalpr>
             <Modalpr active={archivebtn} setActive={setArchive}>
                 Архивировать?

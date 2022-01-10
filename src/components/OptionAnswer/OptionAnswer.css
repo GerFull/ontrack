@@ -1,0 +1,57 @@
+.option-answer {
+    width: 645px;
+    height: 37px;
+    background: #f0f1fc;
+    border-radius: 4px;
+    padding-left: 12px;
+    padding-top: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.option-answer > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #151515;
+}
+
+.option-cheked {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 645px;
+    height: 37px;
+    background: #d2d6ff;
+    border-radius: 4px;
+    padding-left: 12px;
+    padding-right: 9px;
+    padding-top: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.option-cheked > p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #151515;
+}
+.option-cheked > img {
+    position: absolute;
+    top: 6px;
+    right: 55px;
+}
+
+.option-cheked__procent {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #151515;
+}

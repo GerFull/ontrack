@@ -3,25 +3,30 @@ import './itemProfile.css';
 import calendar from '../../img/calendar.png';
 import cityimg from '../../img/map.png';
 import place from '../../img/place.png';
+import { Link } from 'react-router-dom';
 
-export default function ItemProfile({ title, datastart, dataend, city, }) {
+export default function ItemProfile({id, title, datastart, dataend, city, }) {
+
+    console.log(id)
 
     return (
-        <div className='profile__item'>
-            <div className='trippr__tittle'>
-                {title}
-            </div>
-            <div className='trippr__discr'>
-                <div className='trippr__text'>
-                    <img src={calendar} alt='calendar'/>{datastart}-{dataend}
+            <Link style={{textDecoration:'none'}} to={{ pathname: `/trip/`, state: { id} }}>
+                <div className='profile__item'>
+                    <div className='trippr__tittle'>
+                        {title}
+                    </div>
+                    <div className='trippr__discr'>
+                        <div className='trippr__text'>
+                            <img src={calendar} alt='calendar' />{datastart}-{dataend}
+                        </div>
+                        <div className='trippr__text'>
+                            <img src={cityimg} alt='calendar' /> {city}
+                        </div>
+                        <div className='trippr__text'>
+                            <img src={place} alt='calendar' /> 4 места
+                        </div>
+                    </div>
                 </div>
-                <div className='trippr__text'>
-                    <img src={cityimg} alt='calendar'/> {city}
-                </div>
-                <div className='trippr__text'>
-                    <img src={place} alt='calendar'/> 4 места
-                </div>
-            </div>
-        </div>
+            </Link>
     )
 }

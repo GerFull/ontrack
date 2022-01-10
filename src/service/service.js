@@ -193,5 +193,15 @@ export default class OnTrackService {
             }
         })
     }
+
+    DeleteTrip = async (user,id) => {
+        return axios({
+            method: 'delete',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            }
+        })
+    }
 }
 

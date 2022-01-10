@@ -1,0 +1,31 @@
+.done-quiz {
+    border: 2px solid #dddddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 16px 36px ;
+}
+
+.done-quiz__name {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+    text-align: center;
+    color: #151515;
+    margin-bottom: 25px;
+}
+
+.done-quiz__name > p:nth-child(2) {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #b8b4b4;
+}
+
+.done-quiz__answer{
+
+}

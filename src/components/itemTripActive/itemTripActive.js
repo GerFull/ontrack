@@ -1,7 +1,7 @@
 import React from 'react'
 import './itemTripActive.css'
 
-export default function ItemTripActive({ label,active,setActive }) {
+export default function ItemTripActive({ label,active}) {
 
 
     return (

@@ -8,7 +8,7 @@ import ItemtripPls from '../itemtripPls/itemtripPls';
 import Modalpr from '../modalpr/modalpr';
 import ModalCreateTrip from '../modalCreateTrip/modalCreateTrip';
 
-export default function MenuTrip() {
+export default function MenuTrip({arrayTrips}) {
 
     const [menuActive, setMenuActive] = useState(false);
     const [plsTrip, setPlstrip] = useState(false);
@@ -21,7 +21,11 @@ export default function MenuTrip() {
                     <img src={burger} alt='burger' onClick={() => setMenuActive(!menuActive)} />
                     <p>Активные</p>
                     <div className='trip__active'>
-                        <ItemTripActive active={menuActive} setActive={setMenuActive} label='TЕ' />
+                        {
+                            arrayTrips.map(item =>(
+                                <ItemTripActive active={menuActive} setActive={setMenuActive} label='TЕ' />
+                            ) )
+                        }
                         <ItemtripPls onClick={() => setPlstrip(true)} active={menuActive}/>
                     </div>
                     <p>Архив</p>
