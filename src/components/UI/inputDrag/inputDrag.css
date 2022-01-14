@@ -18,7 +18,7 @@
 
 .dragdiv {
     border-bottom: 2px solid #dfdfdf;
-    width: 340px;
+    width: 440px;
     font-family: Segoe UI;
     font-style: normal;
     font-weight: normal;
@@ -30,6 +30,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .dragdiv > p {

@@ -31,6 +31,7 @@
 .trip-member__join {
     padding-left: 36px;
     padding-right: 36px;
+    padding-bottom: 36px;
 }
 
 .trip-member__join-text {
@@ -56,9 +57,11 @@
     font-weight: normal;
     font-size: 22px;
     line-height: 29px;
+    margin-right: 10px;
 
     color: #000000;
-    width: 118px;
+    min-width: 118px;
+    padding: 4px;
     height: 37px;
     border: 1px solid #b8b4b4;
     box-sizing: border-box;

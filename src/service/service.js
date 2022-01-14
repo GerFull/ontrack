@@ -186,6 +186,7 @@ export default class OnTrackService {
             "startDate": datastart,
             "endDate": dataend
         }
+        console.log(bodyFormData)
         return axios({
             method: 'post',
             url: `http://188.186.7.171/travelhelperbackend/api/Trips/Create`,
@@ -308,6 +309,91 @@ export default class OnTrackService {
                 'Authorization': `Bearer ${user}`
             },
             data: bodyFormData
+        })
+    }
+
+
+    EditAction = async (user, actionId, name, time, decr,) => {
+        const bodyFormData = {
+            "actionId": actionId,
+            "name": name,
+            "description": decr,
+            "timeOfAction": time
+        }
+        console.log(bodyFormData)
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/EditAction`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
+        })
+    }
+
+    AddAction = async (user, DayId, name, time, decr,) => {
+        const bodyFormData = {
+            "tripDayId": DayId,
+            "name": name,
+            "description": decr,
+            "timeOfAction": time
+        }
+        console.log(bodyFormData)
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/AddAction`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
+        })
+    }
+
+    JoinCode = async (user, code) => {
+        return axios({
+            method: 'get',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/Join/${code}`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            }
+        })
+    }
+
+
+    EditTtrip = async (user,id,name,descr,destination) => {
+        const bodyFormData = {
+            "id": id,
+            "name": name,
+            "description": descr,
+            "destination": destination
+        }
+        return axios({
+            method: 'post',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/EditTrip`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+            data: bodyFormData
+        })
+    }
+
+    DeleteAction = async (user,id) => {
+        return axios({
+            method: 'delete',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/DeleteAction/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
+        })
+    }
+
+    GenerateCode = async (user,id) => {
+        return axios({
+            method: 'get',
+            url: `http://188.186.7.171/travelhelperbackend/api/Trips/${id}/GenerateInvite`,
+            headers: {
+                'Authorization': `Bearer ${user}`
+            },
         })
     }
 }

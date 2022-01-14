@@ -12,7 +12,7 @@ import Cookies from 'js-cookie'
 
 const rendercards = (itemplace, showAll,favourites) => {
     return itemplace.slice(0, showAll ? itemplace.length : 12).map((item) =>
-        <ShowplaceItem title={item.name} key={item.id} idCard={item.id} urlimg={item.mainPhotoUrl} place={item.textLocation} isF={favourites.some((e) => e.id === item.id)} />
+        <ShowplaceItem array1={item} title={item.name} key={item.id} idCard={item.id} urlimg={item.mainPhotoUrl} place={item.textLocation} isF={favourites.some((e) => e.id === item.id)} />
     )
 }
 

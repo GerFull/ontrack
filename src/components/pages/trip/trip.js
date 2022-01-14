@@ -27,71 +27,43 @@ export default function Trip(props) {
     const [partyTripbtn, setPartyTripbtn] = useState(false)
     const [archivebtn, setArchive] = useState(false)
     const [deletebtn, setDeletebtn] = useState(false)
-    // const [currentBoard, setCurrentBoard] = useState([])
-    // const [currentItem, setCurrentItem] = useState(null)
     const [trip, setTrip] = useState([])
     const [boards, setBoards] = useState([])
     const [field, setfield] = useState(false)
+
     const cityurl = `/city/${trip.DestinationId}`
+
     const [valueName, setValueName] = useState('')
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
     const [arrayTrips, setArrayTrips] = useState([])
-
-    // const dragOverHandler = (e) => {
-    //     e.preventDefault()
-    // }
-
-    // const dragLeaveHandler = (e) => {
-    // }
-
-    // const dragStarthandler = (e, board, item) => {
-    //     setCurrentBoard(board)
-    //     setCurrentItem(item)
-    // }
-
-    // const dragEndHandler = (e) => {
-    // }
-
-    // const dropHandler = (e, board, item) => {
-    //     e.stopPropagation()
-    //     e.preventDefault()
-    //     const currentIndex = currentBoard.items?.indexOf(currentItem)
-    //     currentBoard.items?.splice(currentIndex, 1)
-    //     const dropIndex = board.items?.indexOf(item)
-    //     board.items?.splice(dropIndex + 1, 0, currentItem)
-    //     setBoards(boards.map(b => {
-    //         if (b.id === board.id) {
-    //             return board
-    //         }
-    //         if (b.id === currentBoard.id) {
-    //             return currentBoard
-    //         }
-    //         return b
-    //     }))
-    // }
-
-    // const dropCardHandler = (e, board) => {
-    //     board?.items?.push(currentItem)
-    //     const currentIndex = currentBoard.items?.indexOf(currentItem)
-    //     currentBoard.items?.splice(currentIndex, 1)
-    //     setBoards(boards.map(b => {
-    //         if (b.id === board.id) {
-    //             return board
-    //         }
-    //         if (b.id === currentBoard.id) {
-    //             return currentBoard
-    //         }
-    //         return b
-    //     }))
-    // }
+    const [role, setRole] = useState(Number)
+    const [menutrip,setmenutrip]=useState(false)
 
     const DelteTrip = (idtrip) => {
-        ontrack.DeleteTrip(userToken, idtrip)
+        ontrack.DeleteTrip(userToken, trip.Id)
     }
+
+    const ChoiceRole = (thistrip) => {
+        const userName = localStorage.getItem('userName')
+        const RoleArray = thistrip.Users
+
+        RoleArray.forEach(item => {
+            if (userName === item.Username && item.Role === 0) {
+                setRole(0)
+            } else if (userName === item.Username && item.Role === 1) {
+                setRole(1)
+            } else if (userName === item.Username && item.Role === 2) {
+                setRole(2)
+            }
+        })
+    }
+
+
 
     useEffect(() => {
         ontrack.GetTripInfo(userToken, idTrip === undefined ? 0 : idTrip).then(res => {
+            ChoiceRole(res.data)
             console.log(res.data)
             setTrip(res.data)
             setBoards(res.data.TripDays)
@@ -101,21 +73,22 @@ export default function Trip(props) {
         }).catch(e => console.log(e))
 
         ontrack.GetInfoUser(userToken).then(result => setArrayTrips(result.data.UserTrips))
-    }, [])
+
+    }, [idTrip])
 
 
     return (
-        <div>
+        <div className='position'>
             <div className='active'>
                 <Header />
             </div>
             <div className='trip'>
-                <MenuTrip arrayTrips={arrayTrips} />
+                <MenuTrip arrayTrips={arrayTrips} setmenutrip={setmenutrip} />
                 <div className='trip__right'>
                     <div className='trip__right-top'>
                         <div className='trip__right-info'>
                             <TripWay label={trip.Name} />
-                            <TripNameChange setValueName={setValueName} name={valueName} field={field} setfield={setfield} />
+                            <TripNameChange id={trip.Id} distanId={trip.DestinationId} setValueName={setValueName} name={valueName} field={field} setfield={setfield} />
                             <div className='trip__data-place'>
                                 <div className='trip__place'>
                                     <img className='trip__img' src={mapbl} alt=' ' />
@@ -124,7 +97,7 @@ export default function Trip(props) {
                                 </div>
                                 <div className='trip__data'>
                                     <img className='trip__img' src={calendarbl} alt='bl' />
-                                    <ChangeData startD={startDate} setStardD={setStartDate} endD={endDate} setEndD={setEndDate} field={field} />
+                                    <ChangeData startD={startDate} setStardD={setStartDate} endD={endDate} setEndD={setEndDate}/>
                                 </div>
                             </div>
                         </div>
@@ -132,16 +105,17 @@ export default function Trip(props) {
                             <div className='trip__func'>
                                 <div className='trip__team'>
                                     <div className='trip__team-item' />
-                                    <div className='trip__team-item' />
                                     <div onClick={() => setPartyTripbtn(true)} className='trip__team-pls'>
                                         <img src={cross} alt='cross' />
                                     </div>
                                 </div>
-                                <div className='trip__func-img'>
-                                    <img style={{ cursor: 'pointer' }} src={pencil} alt='' onClick={() => setfield(!field)} />
-                                    <img style={{ cursor: 'pointer' }} onClick={() => setArchive(true)} src={archive} alt='' />
-                                    <img style={{ cursor: 'pointer' }} onClick={() => DelteTrip()} src={delet} alt='' />
-                                </div>
+                                {
+                                    role === 0 || role === 1 ? <div className='trip__func-img'>
+                                        <img style={{ cursor: 'pointer' }} src={pencil} alt='' onClick={() => setfield(!field)} />
+                                        <img style={{ cursor: 'pointer' }} onClick={() => setArchive(true)} src={archive} alt='' />
+                                        <img style={{ cursor: 'pointer' }} onClick={() => DelteTrip(idTrip)} src={delet} alt='' />
+                                    </div> : null
+                                }
                             </div>
                         </div>
                     </div>
@@ -149,25 +123,23 @@ export default function Trip(props) {
                         {
                             boards.map(board =>
                                 <DaysItem
-                                    //dropCardHandler={dropCardHandler}
+                                    role={role}
                                     key={board.id}
                                     board={board}
-                                //dragOverHandler={dragOverHandler}
-                                //dragLeaveHandler={dragLeaveHandler}
-                                //dragStarthandler={dragStarthandler}
-                                //dragEndHandler={dragEndHandler}
-                                //dropHandler={dropHandler}
                                 />
                             )
                         }
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer bootom='true' />
             <Modalpr active={partyTripbtn} setActive={setPartyTripbtn}>
-                <PartyTrip users={trip.Users}
-                code={trip.InviteCode}
-                idT={trip.Id}
+                <PartyTrip
+                    setActive={setPartyTripbtn}
+                    users={trip.Users}
+                    code={trip.InviteCode}
+                    idT={trip.Id}
+                    role={role}
                 />
             </Modalpr>
             <Modalpr active={archivebtn} setActive={setArchive}>

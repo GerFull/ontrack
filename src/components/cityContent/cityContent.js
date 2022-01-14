@@ -6,7 +6,7 @@ import './cityContent.css'
 export default function CityContent({attcity,name,urlimg}) {
 
     return (
-        <div className='container__city-cont'>
+        <div className='container__city-cont' >
             <InputSearch styleClass='input-search'/>
             {
                 attcity.map(item =>(

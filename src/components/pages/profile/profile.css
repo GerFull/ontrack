@@ -51,7 +51,9 @@
 }
 
 .avatar{
-    background-color: tomato;
+    background-image: url(../../../img/Petya.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 162px;
     width: 162px;
     border-radius: 100%;

@@ -1,35 +1,61 @@
 import Cookies from 'js-cookie'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import check from '../../img/blueCheck.png'
 import OnTrackService from '../../service/service'
 import './OptionAnswer.css'
 
-export default function OptionAnswer({ text,id,idQuiz }) {
+export default function OptionAnswer({ text, id, idQuiz, checkAnswer,clickable,setClickable }) {
 
-    console.log(idQuiz)
     const ontrack = new OnTrackService();
     const userToken = Cookies.get('auth-token')
-    const [clickAnswer, setClickAnwer] = useState(false)
+    
+    const userName = localStorage.getItem('userName')
+    const [replied, setReplied] = useState(false)
 
 
-    const submitAnswer=()=>{
-        setClickAnwer(true)
-        ontrack.ChoiseQuiz(userToken,idQuiz,id).then(res=> console.log(res.data)).catch(e=>console.log(e))
+    const submitAnswer = () => {
+        setClickable(false)
+        setReplied(true)
+        ontrack.ChoiseQuiz(userToken, idQuiz, id).then(res => console.log(res.data)).catch(e => console.log(e))
     }
 
-    return (
-        <>
-        {
-            clickAnswer ? 
-            <div className='option-cheked'>
-                <p>{text}</p>
-                <img src={check} alt='check'/>
-                <p className='option-cheked__procent'>50%</p>
-            </div> :
-            <div className='option-answer' onClick={submitAnswer} >
-                <p>{text}</p>
-            </div>
-        }
-        </>
-    )
+    useEffect(() => {
+        checkAnswer.forEach(item => {
+            if (item === userName) {
+                setReplied(true)
+            }
+        })
+    }, [])
+
+    if (clickable) {
+        return (
+            <>
+                {
+                    replied ?
+                        <div className='option-cheked'>
+                            <p>{text}</p>
+                            <img src={check} alt='check' />
+                        </div> :
+                        <div className='option-answer' onClick={submitAnswer} >
+                            <p>{text}</p>
+                        </div>
+                }
+            </>
+        )
+    } else {
+        return (
+            <>
+                {
+                    replied ?
+                        <div className='option-cheked'>
+                            <p>{text}</p>
+                            <img src={check} alt='check' />
+                        </div> :
+                        <div style={{cursor:'default'}} className='option-answer'>
+                            <p>{text}</p>
+                        </div>
+                }
+            </>
+        )
+    }
 }

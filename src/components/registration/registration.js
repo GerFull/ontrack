@@ -13,18 +13,25 @@ import Cookies from 'js-cookie'
 export default function Registration({ setActive , setLog, loguser}) {
 
     const ontrack = new OnTrackService();
+    
 
     const Signin = async (email, password) => {
         try{
-            await ontrack.Sign(email,password).then( res => loguser(res))
+            await ontrack.Sign(email,password).then( res =>console.log(res))
             setPassword('')
             setEmail('')
-            setLog(true)
-            setActive(false)
+    
             console.log(Cookies.get('auth-token'))
+            const userToken = Cookies.get('auth-token')
+            ontrack.GetInfoUser(userToken).then(res=> {
+                loguser(res.data.Username)
+                setLog(true)
+                setActive(false)
+            }).catch(e=> console.log(e))
         }catch (e) {
             console.log(e.message)
         }
+        
     }
 
 

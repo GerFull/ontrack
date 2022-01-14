@@ -14,6 +14,7 @@ export default function ModalCreateTrip({setActive}) {
     const userToken= Cookies.get('auth-token')
 
     const PostInfoTrip=()=>{
+        console.log(cityName)
         ontrack.CreateTrip(userToken,datastart,dataend,cityName,nametrip).catch(e=> console.log(e))
         setActive(false)
     }

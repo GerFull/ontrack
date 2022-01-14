@@ -31,7 +31,7 @@ export default function FavoritesPlace() {
             </div>
             <div className='favorites__container'>
                 <div className='favorites__title'>
-                    <p>Избранное места</p>
+                    <p>Избранные места</p>
                     <select>
                         <option>Все</option>
                         <option>По категориям</option>

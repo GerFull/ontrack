@@ -8,7 +8,7 @@ import ItemtripPls from '../itemtripPls/itemtripPls';
 import Modalpr from '../modalpr/modalpr';
 import ModalCreateTrip from '../modalCreateTrip/modalCreateTrip';
 
-export default function MenuTrip({arrayTrips}) {
+export default function MenuTrip({arrayTrips,setmenutrip}) {
 
     const [menuActive, setMenuActive] = useState(false);
     const [plsTrip, setPlstrip] = useState(false);
@@ -23,7 +23,8 @@ export default function MenuTrip({arrayTrips}) {
                     <div className='trip__active'>
                         {
                             arrayTrips.map(item =>(
-                                <ItemTripActive active={menuActive} setActive={setMenuActive} label='TЕ' />
+
+                                <ItemTripActive setmenutrip={setmenutrip} id={item.Id} key={item.id} nameTrip={item.Name} city={item.DestinationName} active={menuActive} setActive={setMenuActive} label={item.Chars} />
                             ) )
                         }
                         <ItemtripPls onClick={() => setPlstrip(true)} active={menuActive}/>

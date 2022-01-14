@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import OnTrackService from '../../service/service'
 import './PartyTripMember.css'
 
-export default function PartyTripMember({ BeginRole, name, id, userID }) {
+export default function PartyTripMember({ BeginRole, name, id, userID, role }) {
 
     const ontrack = new OnTrackService()
     const userToken = Cookies.get('auth-token')
@@ -15,11 +15,8 @@ export default function PartyTripMember({ BeginRole, name, id, userID }) {
         ontrack.ChengeRole(userToken, id, userID,role).then(res=> console.log(res.data)).catch(e=> console.log(e))
     }
 
-    // id поездки = id
-    // id пользователя =
-    // role = BeginRole
+    const condition = () => {
 
-    const uslovie = () => {
         if (BeginRole === 1) {
             return (
                 <>
@@ -57,7 +54,7 @@ export default function PartyTripMember({ BeginRole, name, id, userID }) {
                             </div>
                             <select onChange={e => ChangeRole(e.target.value)}>
                                 {
-                                    uslovie()
+                                    condition() 
                                 }
                             </select>
                         </div>

@@ -15,6 +15,9 @@
 .footer{
     background-color: #f0f1fc;
     height: 140px;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
 }
 .footer__body{
     display: flex;

@@ -1,7 +1,7 @@
 .trip__menu{    
     box-sizing: border-box;
     width: 155px;
-    height: 990px;
+    min-height: 990px;
     padding-top: 40px;
     z-index: 100;
     background-color: white;
@@ -9,7 +9,7 @@
 }
 
 .trip__left-menu{
-    min-height: 990px;
+    height: 100%;
     min-width: 24px;
     background-color: white;
     z-index: 12;
@@ -17,6 +17,7 @@
 
 .trip__right-menu{
     width: 155px;
+    
 }
 
 .trip__right-menu > img{

@@ -5,7 +5,6 @@ import ButtonBlue from '../UI/buttonBlue/buttonBlue';
 import { Link } from 'react-router-dom';
 import Modalpr from '../modalpr/modalpr';
 import Registration from '../registration/registration';
-import Cookies from 'js-cookie';
 
 function Header() {
 
@@ -13,8 +12,6 @@ function Header() {
     const [header, setHeader] = useState(false);
     const [Logined, setLogined] = useState(false);
     const [user,setUser] = useState('')
-    const userToken= Cookies.get('auth-token')
-
     
     const changeBackgrouund = () => {
         if (window.scrollY >= 40) {
@@ -24,13 +21,29 @@ function Header() {
         }
     }
 
+
+    const username=(name)=>{
+        localStorage.setItem('userName',name)
+    }
+
     const showBtn = () => {
         if (Logined) {
-            return <Link to='/profile'><p>{user}</p></Link>
+            return <Link style={{textDecoration: 'none'}} to='/profile'><p className='header__item-title'>{user}</p></Link>
         } else {
             return <ButtonBlue onClick={() => setModalActive(true)} styleclass='button__blue' label='Войти' />
         }
     }
+
+    useEffect(() => {
+        const userNAME=localStorage.getItem('userName')
+
+        if( userNAME){
+            setUser(userNAME)
+            setLogined(true)
+        } else{
+            setLogined(false)
+        }
+    }, [Logined])
 
 
     window.addEventListener('scroll', changeBackgrouund);
@@ -50,7 +63,7 @@ function Header() {
                 </div>
             </div>
             <Modalpr active={modalActtive} setActive={setModalActive}>
-                <Registration loguser={setUser} log={Logined} setLog={setLogined} setActive={setModalActive} />
+                <Registration loguser={username} log={Logined} setLog={setLogined} setActive={setModalActive} />
             </Modalpr>
         </header>
     )

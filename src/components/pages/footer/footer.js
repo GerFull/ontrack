@@ -5,9 +5,12 @@ import gp from '../../../img/gp.png';
 import insta from '../../../img/inst.png';
 import vk from '../../../img/vk.png';
 
-export default function Footer() {
+export default function Footer({bootom}) {
+
+    const b = bootom === 'true' ? '0' : 'none'
+
     return (
-        <div className='footer'>
+        <div className='footer' style={{bottom: b}}>
             <div className='container__footer'>
                 <div className='footer__body'>
                     <div className='footer__left'>

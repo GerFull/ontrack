@@ -31,11 +31,10 @@ export default function ShowplaceItem({ title, place, idCard, deleteItem, isF,ur
         }
     }
 
-    //style={{backgroundImage: `url(${urlimg})`,}}
 
     return (
         <div className='showplace__item'>
-            <div className='showplace__item-img'  >
+            <div className='showplace__item-img'  style={{backgroundImage: `url(${urlimg})`}}>
                 <img key={this} id='heart' src={favorite ? heart : emptyheart} alt='emptyheart' onClick={changeheart} />
             </div>
             <div className='showplace__item-content'>

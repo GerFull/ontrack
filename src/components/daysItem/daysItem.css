@@ -38,5 +38,6 @@
 .days__inputs{
     padding-left: 6px;
     overflow: auto;
+    overflow-x: hidden;
     height: 245px;
 }

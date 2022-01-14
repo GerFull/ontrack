@@ -1,7 +1,7 @@
 .item-trip-modal__size {
     position: relative;
     width: 790px;
-    min-height: 506px;
+    min-height: 306px;
     box-sizing: border-box;
     padding: 36px;
     padding-top: 24px;
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 26px;
 }
 .item-trip-modal__day-year {
     margin-left: 12px;
@@ -23,10 +24,10 @@
 }
 .absolute-cross {
     position: absolute;
-    right: 16px;
-    top: 12px;
-    width: 16px;
-    height: 16px;
+    right: 24px;
+    top: 20px;
+    width: 16.01px;
+    height: 16.01px;
     cursor: pointer;
 }
 
@@ -38,6 +39,7 @@
     margin-top: 20px;
     box-sizing: border-box;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .item-trip-modal__discr > p {
@@ -65,7 +67,7 @@
 }
 
 .input__event {
-    width: 100%;
+    width: 80%;
     margin-left: 28px;
     height: 25px;
     border: none;

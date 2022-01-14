@@ -5,11 +5,20 @@ import ButtonWhite from '../../UI/buttonWhite/buttonWhite';
 import InputCode from '../../UI/inputCode/inputCode';
 import ModalCreateTrip from '../../modalCreateTrip/modalCreateTrip';
 import './mainPage.css';
+import Cookies from 'js-cookie';
+import OnTrackService from '../../../service/service';
 
 export default function MainPage() {
 
     const [createTrip, setCreateTrip]= useState(false);
-    
+    const [code,setCode]=useState('')
+    const ontrack = new OnTrackService();
+    const userToken = Cookies.get('auth-token')
+
+    const JoinTrip = ()=>{
+        console.log(code)
+        ontrack.JoinCode(userToken,code).then(res => console.log(res)).catch(e=> console.log(e))
+    }
 
     return (
         <div className='header__body'>
@@ -23,8 +32,8 @@ export default function MainPage() {
                     </div>
                     <ButtonWhite label='Запланировать поездку' onClick={() => setCreateTrip(true)} />
                     <div className='header__code'>
-                        <InputCode styleColor='myinput' label='Есть код поездки?'/>
-                        <ButtonJoin label='Присоединиться'/>
+                        <InputCode styleColor='myinput' label='Есть код поездки?' value={code} setValue={setCode} />
+                        <ButtonJoin label='Присоединиться' onClick={JoinTrip}/>
                     </div>
                 </div>
             </div>

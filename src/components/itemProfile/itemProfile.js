@@ -5,9 +5,9 @@ import cityimg from '../../img/map.png';
 import place from '../../img/place.png';
 import { Link } from 'react-router-dom';
 
-export default function ItemProfile({id, title, datastart, dataend, city, }) {
+export default function ItemProfile({id,item, title, datastart, dataend, city, }) {
 
-    console.log(id)
+    console.log(item)
 
     return (
             <Link style={{textDecoration:'none'}} to={{ pathname: `/trip/`, state: { id} }}>
@@ -23,7 +23,7 @@ export default function ItemProfile({id, title, datastart, dataend, city, }) {
                             <img src={cityimg} alt='calendar' /> {city}
                         </div>
                         <div className='trippr__text'>
-                            <img src={place} alt='calendar' /> 4 места
+                            <img src={place} alt='calendar' /> {item.ActionsCount} событий
                         </div>
                     </div>
                 </div>

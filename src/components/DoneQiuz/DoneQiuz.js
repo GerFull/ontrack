@@ -1,36 +1,44 @@
-import Cookies from 'js-cookie'
-import React from 'react'
-import OnTrackService from '../../service/service'
+import {useEffect,useState}from 'react'
 import OptionAnswer from '../OptionAnswer/OptionAnswer'
 import './DoneQiuz.css'
 
 export default function DoneQiuz({QuizArr}) {
 
-    console.log(QuizArr.Variants)
+    const [clickable, setClickable] = useState(true)
+    const userName = localStorage.getItem('userName')
 
-    const ontrack = new OnTrackService()
-    const userToken = Cookies.get('auth-token')
+    const answered= QuizArr.Variants
 
-    const Delete = () =>{
-        ontrack.DeleteQuiz(userToken,QuizArr.Id).then(res=> console.log(res.data)).catch(e=> console.log(e))
-    }
+    // const Delete = () =>{
+    //     ontrack.DeleteQuiz(userToken,QuizArr.Id).then(res=> console.log(res.data)).catch(e=> console.log(e))
+    // }
+
+
+    useEffect(() => {
+        answered.forEach(item=>{
+            item.VotersUsernames.forEach(name=>{
+                if(name === userName){
+                    setClickable(false)
+                }
+            })
+        })
+    }, [])
+
 
     return (
         <div className='done-quiz'>
             <div className='done-quiz__name'>
                 <p>{QuizArr.Name}</p>
-                <p>Петр Петрович</p>
             </div>
             <div className='done-quiz__answer'>
                 {
                     QuizArr.Variants.map((item,index) => (
-                        <OptionAnswer text={item.Name} key={index} id={index} idQuiz={QuizArr.Id} />
+                        <OptionAnswer setClickable={setClickable} clickable={clickable} text={item.Name} key={index} id={index} idQuiz={QuizArr.Id} checkAnswer={item.VotersUsernames} />
                     ))
                 }
             </div>
             <div className='done-quiz__vote'>
             </div>
-            <button onClick={Delete}>Delete Quiz</button>
         </div>
     )
 }

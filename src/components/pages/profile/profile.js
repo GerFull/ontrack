@@ -36,7 +36,10 @@ export default function Profile() {
     }
 
 
-
+    const SignOut =()=>{
+        localStorage.removeItem('userName')
+        Cookies.remove('auth-token')
+    }
 
     useEffect(() => {
         getUSet()
@@ -62,7 +65,9 @@ export default function Profile() {
                                     <p>{userInfo.Email}</p>
                                 </div>
                                 <p onClick={() => setModalActive(true)} className='profile__change'>Редактировать профиль</p>
+                                <button onClick={SignOut}>Выход</button>
                             </div>
+                            
                         </div>
                         <div className='body__right'>
                             <div className='right__title'>
@@ -74,7 +79,7 @@ export default function Profile() {
                                 <div className='contents__tabs'>
                                     <div className={toggleState === 1 ? "content active__content" : "content"}>
                                         {userInfo.UserTrips?.map(item => (
-                                            <ItemProfile key={item.Id} id={item.Id} title={item.Name} city={item.DestinationName} datastart={item.TripStart} dataend={item.TripEnd} />
+                                            <ItemProfile key={item.Id} item={item} id={item.Id} title={item.Name} city={item.DestinationName} datastart={item.TripStart} dataend={item.TripEnd} />
                                         ))}
                                         <CreateItemPr onClick={() => setCreateTrip(true)} />
                                     </div>
